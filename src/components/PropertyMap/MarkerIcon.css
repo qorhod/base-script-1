@@ -1,0 +1,18 @@
+/* MarkerIcon.css */
+
+/* تستهدف العنصر داخل الـ SVG الذي له الفئة (class="map-pin-icon") */
+.map-pin-icon {
+    fill: orange;    /* تعبئة الدبوس */
+    stroke: #ffffff; /* لون الحد */
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  
+    /* 
+      لو أردت حجمًا افتراضيًا للـ SVG.
+      لكن خرائط جوجل ستعتمد أساسًا على scaledSize في جافاسكربت (40×40).
+    */
+    width: 40px;
+    height: 40px;
+  }
+  
