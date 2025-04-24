@@ -1,0 +1,37 @@
+/* styles.css */
+
+/* مثال: استيراد Material Icons إن أحببت */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* تخصيص شكل InfoWindow (لو استخدمته) */
+.custom-info-window {
+  padding: 8px;
+  max-width: 180px;
+  border-radius: 12px;
+  background-color: #fff; 
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+/* تخصيص أزرار التحكم (لو أضفتها) */
+.map-controls {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+}
+
+/* حجم أيقونات داخل أزرار التحكم */
+.map-controls .material-icons {
+  font-size: 24px;
+}
+
+/* لو لديك عنصر بخاصية ملء الشاشة */
+#map-container.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
