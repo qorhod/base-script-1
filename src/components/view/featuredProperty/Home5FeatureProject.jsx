@@ -327,7 +327,7 @@ const Home5FeatureProject = ({ userData }) => {
                       </div>
                     </div>
                     <div className="explore-more-btn">
-                      <Link legacyBehavior href={`/${userData?.user?.domainName}/property-list`}>
+                      <Link legacyBehavior href={`/property-list`}>
                         <a>
                           استكشف المزيد <i className="bi bi-arrow-right" />
                         </a>
