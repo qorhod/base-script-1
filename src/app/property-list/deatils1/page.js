@@ -33,6 +33,17 @@ import SingleLocationMap from "@/components/PropertyMap/PropertyMap";
 import MapButton from "@/components/MapButton/MapButton";
 import ContactButtons from "@/components/ContactButtons/ContactButtons";
 
+import FlashOnIcon from '@mui/icons-material/FlashOn';      // كهرباء
+import OpacityIcon from '@mui/icons-material/Opacity';        // مياه
+import PlumbingIcon from '@mui/icons-material/Plumbing';      // صرف صحي
+import WifiIcon from '@mui/icons-material/Wifi';              // ألياف ضوئية
+import PhoneIcon from '@mui/icons-material/Phone';            // هاتف
+import WavesIcon from '@mui/icons-material/Waves';            // تصريف فيضانات
+import BlockIcon from '@mui/icons-material/Block';            // لا يوجد خدمات
+
+import CableIcon from '@mui/icons-material/Cable';
+
+
 export default function Page() {
   const customBgStyle = {
     backgroundColor: "#f9f9f9",
@@ -525,7 +536,7 @@ export default function Page() {
                 )}
 
                 {/* خدمات العقار */}
-                {adData?.services?.length > 0 && (
+                {/* {adData?.services?.length > 0 && (
                   <>
                     <h5>خدمات العقار</h5>
                     <div
@@ -592,7 +603,74 @@ export default function Page() {
                       </div>
                     </div>
                   </>
-                )}
+                )} */}
+
+
+{adData?.services?.length > 0 && (
+  <>
+    <h5>خدمات العقار</h5>
+    <div className="single-item mb-30 custom-bg" style={customBgStyle}>
+      <div className="kye-features">
+        <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+          {adData.services.map((service, index) => {
+            let translatedService = "";
+            let IconComponent = BlockIcon; // الافتراضي (لا يوجد خدمة)
+
+            switch (service) {
+              case "electricity":
+                translatedService = "كهرباء";
+                IconComponent = FlashOnIcon;
+                break;
+              case "water":
+                translatedService = "المياه";
+                IconComponent = OpacityIcon;
+                break;
+              case "sewer":
+                translatedService = "الصرف الصحي";
+                IconComponent = PlumbingIcon;
+                break;
+              case "fiber":
+                translatedService = "ألياف ضوئية";
+                IconComponent = CableIcon;
+                break;
+              case "phone":
+                translatedService = "هاتف";
+                IconComponent = PhoneIcon;
+                break;
+              case "flood":
+                translatedService = "تصريف الفيضانات";
+                IconComponent = WavesIcon;
+                break;
+              case "none":
+                translatedService = "لا يوجد خدمات";
+                IconComponent = BlockIcon;
+                break;
+              default:
+                translatedService = service;
+                IconComponent = BlockIcon;
+            }
+
+            return (
+              <li
+                key={index}
+                style={{
+                  marginBottom: "6px",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <IconComponent style={{ fontSize: 24, color: '#575757', marginRight: '8px' }} />
+                <span>{translatedService}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  </>
+)}
+
+
 
                 {/* فيديو العقار إن وجد */}
                 <VideoGallery
