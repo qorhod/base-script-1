@@ -23,6 +23,7 @@
     "lottie-react": "^2.4.1",
     "markerwithlabel": "^2.0.2",
     "next": "latest",
+    "next-images": "^1.8.5",
     "postcss": "^8.4.49",
     "react": "latest",
     "react-bootstrap": "^2.9.0",

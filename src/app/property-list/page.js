@@ -489,13 +489,31 @@ const Page = () => {
   /* =========================================================
      4) Grid / List toggle
      ========================================================= */
-  const [isGridView, setIsGridView] = useState(
-    () => localStorage.getItem("viewPreference") !== "list"
-  );
-  const toggleView = (grid) => {
-    setIsGridView(grid);
+  // const [isGridView, setIsGridView] = useState(
+  //   () => localStorage.getItem("viewPreference") !== "list"
+  // );
+  // const toggleView = (grid) => {
+  //   setIsGridView(grid);
+  //   localStorage.setItem("viewPreference", grid ? "grid" : "list");
+  // };
+
+
+const [isGridView, setIsGridView] = useState(true); // البداية افتراضية
+
+useEffect(() => {
+  if (typeof window !== "undefined") {
+    const viewPreference = localStorage.getItem("viewPreference");
+    setIsGridView(viewPreference !== "list");
+  }
+}, []);
+
+const toggleView = (grid) => {
+  setIsGridView(grid);
+  if (typeof window !== "undefined") {
     localStorage.setItem("viewPreference", grid ? "grid" : "list");
-  };
+  }
+};
+
 
   /* =========================================================
      5) فلترة البيانات
